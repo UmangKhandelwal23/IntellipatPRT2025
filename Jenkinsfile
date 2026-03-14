@@ -6,7 +6,7 @@
     stages {
         stage('git') {
             steps {
-                git branch: 'main' , url = 'https://github.com/UmangKhandelwal23/IntellipatPRT2025'
+                git branch: 'main' , url: 'https://github.com/UmangKhandelwal23/IntellipatPRT2025'
             }
         }
         stage('dockerbuild') {
