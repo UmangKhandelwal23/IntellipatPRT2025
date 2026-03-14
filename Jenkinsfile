@@ -3,6 +3,7 @@
 
     environment{
         DOCKERHUB_CREDENTIALS = credentials('docker')
+        KUBECONFIG = '/var/lib/jenkins/.kube/config'
     }
 
     stages {
@@ -21,7 +22,7 @@
         
         stage('K8') {
             steps {
-                export KUBECONFIG=/var/lib/jenkins/.kube/config
+
                 sh 'kubectl apply -f Deployment.yml'
                 sh 'kubectl apply -f Service.yml'
             }
