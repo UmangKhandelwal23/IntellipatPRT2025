@@ -13,16 +13,16 @@
         }
         stage('dockerbuild') {
             steps {
-                sh 'sudo docker build -t umangkhandelwal/intellipat2025:v1 ${WORKSPACE}'
-                sh 'sudo docker login -u ${DOCKERHUB_CREDENTIALS_USR} -p ${DOCKERHUB_CREDENTIALS_PSW}'
-                sh 'sudo docker push umangkhandelwal/intellipat2025:v1'
+                sh 'docker build -t umangkhandelwal/intellipat2025:v1 ${WORKSPACE}'
+                sh 'docker login -u ${DOCKERHUB_CREDENTIALS_USR} -p ${DOCKERHUB_CREDENTIALS_PSW}'
+                sh 'docker push umangkhandelwal/intellipat2025:v1'
             }
         }
         
         stage('K8') {
             steps {
-                sh 'sudo kubectl apply -f Deployment.yml'
-                sh 'sudo kubectl apply -f Service.yml'
+                sh 'kubectl apply -f Deployment.yml'
+                sh 'kubectl apply -f Service.yml'
             }
         }
     }
