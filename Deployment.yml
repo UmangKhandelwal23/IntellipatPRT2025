@@ -14,7 +14,7 @@ spec:
    spec:
     containers:
     - name: mycontainer
-      image: umangkhandelwal/intellipat2025:v3
+      image: umangkhandelwal/intellipat2025:v4
       imagePullPolicy: Always
       ports:
        - containerPort: 80

@@ -14,9 +14,9 @@
         }
         stage('dockerbuild') {
             steps {
-                sh 'docker build -t umangkhandelwal/intellipat2025:v3 ${WORKSPACE}'
+                sh 'docker build -t umangkhandelwal/intellipat2025:v4 ${WORKSPACE}'
                 sh 'docker login -u ${DOCKERHUB_CREDENTIALS_USR} -p ${DOCKERHUB_CREDENTIALS_PSW}'
-                sh 'docker push umangkhandelwal/intellipat2025:v3'
+                sh 'docker push umangkhandelwal/intellipat2025:v4'
             }
         }
         
