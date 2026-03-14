@@ -13,7 +13,7 @@ spec:
      app: frontend
    containers:
     - name: mycontainer
-      image: umangkhandelwal/intellipat2025:v2
+      image: umangkhandelwal/intellipat2025:v3
       imagePullPolicy: Always
       ports:
        - containerPort: 80
