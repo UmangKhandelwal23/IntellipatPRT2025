@@ -13,14 +13,15 @@
         }
         stage('dockerbuild') {
             steps {
-                sh 'docker build -t umangkhandelwal/intellipat2025:v1 ${WORKSPACE}'
+                sh 'docker build -t umangkhandelwal/intellipat2025:v2 ${WORKSPACE}'
                 sh 'docker login -u ${DOCKERHUB_CREDENTIALS_USR} -p ${DOCKERHUB_CREDENTIALS_PSW}'
-                sh 'docker push umangkhandelwal/intellipat2025:v1'
+                sh 'docker push umangkhandelwal/intellipat2025:v2'
             }
         }
         
         stage('K8') {
             steps {
+                export KUBECONFIG=/var/lib/jenkins/.kube/config
                 sh 'kubectl apply -f Deployment.yml'
                 sh 'kubectl apply -f Service.yml'
             }
